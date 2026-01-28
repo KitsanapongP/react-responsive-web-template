@@ -19,72 +19,72 @@ const siteConfig = {
   },
   locales: {
     th: {
-      nav: ['ภาพรวม', 'กิจกรรม', 'กำหนดการ', 'ผู้สนับสนุน', 'คำถาม'],
-      heroBadge: 'Hackathon Smart Life 2024',
-      heroTitle: 'สร้างชีวิตอัจฉริยะที่ทุกคนเข้าถึงได้',
+      nav: ['Lorem', 'Ipsum', 'Dolor', 'Sit', 'Amet'],
+      heroBadge: 'Lorem ipsum dolor sit amet',
+      heroTitle: 'Lorem ipsum dolor sit amet consectetur',
       heroSubtitle:
-        'เวทีรวมทีม นักพัฒนา นักออกแบบ และนักสร้างสรรค์ เพื่อสร้างผลิตภัณฑ์ Smart Life ที่มีผลกระทบจริง',
-      heroPrimary: 'สมัครเข้าร่วม',
-      heroSecondary: 'ดูรายละเอียดกิจกรรม',
-      sponsorTitle: 'ผู้สนับสนุนหลัก',
-      highlightsTitle: 'ทำไมต้อง Smart Life Hackathon',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.',
+      heroPrimary: 'Lorem Ipsum',
+      heroSecondary: 'Dolor Sit',
+      sponsorTitle: 'Lorem ipsum',
+      highlightsTitle: 'Lorem ipsum dolor sit',
       highlights: [
         {
-          title: 'ธีมที่ชัดเจน',
-          detail: 'เน้น Smart Home, Health, Mobility และพลังงานสะอาด',
+          title: 'Lorem ipsum',
+          detail: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
         },
         {
-          title: 'ทีมที่ครบทุกสกิล',
-          detail: 'จับคู่ไอเดียกับ mentor และ community ที่แข็งแรง',
+          title: 'Dolor sit',
+          detail: 'Sed do eiusmod tempor incididunt ut labore et dolore.',
         },
         {
-          title: 'ต่อยอดสู่ธุรกิจ',
-          detail: 'พบกับ Venture Partner เพื่อผลักดันสู่ตลาดจริง',
+          title: 'Consectetur',
+          detail: 'Ut enim ad minim veniam quis nostrud exercitation.',
         },
       ],
-      scheduleTitle: 'กำหนดการไฮไลต์',
-      scheduleSubtitle: 'วางแผนทุกช่วงเวลาให้ทีมเดินหน้าได้อย่างมั่นใจ',
+      scheduleTitle: 'Lorem ipsum',
+      scheduleSubtitle: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
       schedule: [
         {
           time: '09:30',
-          title: 'Registration & Networking',
-          detail: 'เช็คอิน รับชุดเอกสาร และพบเพื่อนร่วมทีม',
+          title: 'Lorem ipsum dolor',
+          detail: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
         },
         {
           time: '10:30',
-          title: 'Keynote: The Future of Smart Life',
-          detail: 'แนวโน้มเทคโนโลยีและโจทย์ที่ต้องการแก้ไข',
+          title: 'Consectetur adipiscing',
+          detail: 'Sed do eiusmod tempor incididunt ut labore et dolore.',
         },
         {
           time: '13:00',
-          title: 'Build Session + Mentor Clinic',
-          detail: 'ลงมือสร้าง พร้อม mentor ช่วยปรับทิศทาง',
+          title: 'Lorem ipsum',
+          detail: 'Ut enim ad minim veniam quis nostrud exercitation.',
         },
         {
           time: '17:30',
-          title: 'Demo & Award',
-          detail: 'นำเสนอผลงานต่อคณะกรรมการและนักลงทุน',
+          title: 'Dolor sit amet',
+          detail: 'Duis aute irure dolor in reprehenderit in voluptate.',
         },
       ],
-      registrationTitle: 'ลงทะเบียนเป็นทีม',
-      registrationSubtitle: 'กรอกข้อมูลผู้เข้าร่วมได้หลายคน เราจะส่งอีเมลยืนยันให้ทุกคน',
-      addMember: '+ เพิ่มสมาชิก',
-      shareTitle: 'แชร์กิจกรรมให้เพื่อนร่วมทีม',
-      shareSubtitle: 'ส่งต่อผ่าน Facebook เพื่อรวมทีมให้เร็วขึ้น',
-      shareButton: 'แชร์บน Facebook',
-      faqTitle: 'คำถามที่พบบ่อย',
+      registrationTitle: 'Lorem ipsum',
+      registrationSubtitle: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
+      addMember: '+ Lorem',
+      shareTitle: 'Lorem ipsum dolor',
+      shareSubtitle: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
+      shareButton: 'Lorem ipsum',
+      faqTitle: 'Lorem ipsum',
       faq: [
         {
-          question: 'ต้องมีทีมก่อนสมัครไหม?',
-          answer: 'สามารถสมัครเดี่ยวได้ ระบบจะช่วยจับทีมในวันงาน',
+          question: 'Lorem ipsum dolor sit amet?',
+          answer: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
         },
         {
-          question: 'เข้าร่วมแบบออนไลน์ได้หรือไม่?',
-          answer: 'มีไลฟ์สตรีมและช่องทางส่งผลงานสำหรับทีมต่างจังหวัด',
+          question: 'Consectetur adipiscing elit?',
+          answer: 'Sed do eiusmod tempor incididunt ut labore et dolore.',
         },
         {
-          question: 'ต้องเตรียมอะไรบ้าง?',
-          answer: 'โน้ตบุ๊ก ไอเดีย และความพร้อมในการสร้างสรรค์',
+          question: 'Sed do eiusmod tempor?',
+          answer: 'Ut enim ad minim veniam quis nostrud exercitation.',
         },
       ],
     },
@@ -128,7 +128,7 @@ function App() {
 
   return (
     <div className="page" style={themeStyle}>
-      <header className="header">
+      <header className="header fade-in" style={{ '--delay': '0.05s' }}>
         <div className="logo">SmartLife</div>
         <nav className="nav">
           {text.nav.map((item) => (
@@ -142,7 +142,7 @@ function App() {
         </button>
       </header>
 
-      <section className="sponsor-strip">
+      <section className="sponsor-strip fade-in" style={{ '--delay': '0.12s' }}>
         <span className="sponsor-label">{text.sponsorTitle}</span>
         <div className="sponsor-slider" aria-label="Sponsor logos">
           <div className="sponsor-track">
@@ -228,7 +228,7 @@ function App() {
         </div>
       </section>
 
-      <section className="hero">
+      <section className="hero fade-in" style={{ '--delay': '0.18s' }}>
         <div className="hero-content">
           <span className="hero-badge">{text.heroBadge}</span>
           <h1>{text.heroTitle}</h1>
@@ -243,56 +243,56 @@ function App() {
           </div>
           <div className="hero-meta">
             <div>
-              <strong>48 ชม.</strong>
-              <span>เวลารวมสร้างผลงาน</span>
+              <strong>48</strong>
+              <span>Lorem ipsum</span>
             </div>
             <div>
               <strong>15+</strong>
-              <span>Mentor จากสาย Smart Life</span>
+              <span>Lorem ipsum</span>
             </div>
             <div>
-              <strong>30 ทีม</strong>
-              <span>ทีมที่ผ่านการคัดเลือก</span>
+              <strong>30</strong>
+              <span>Lorem ipsum</span>
             </div>
           </div>
         </div>
         <div className="hero-visual">
           <div className="hero-card primary">
-            <h3>Live Smart Dashboard</h3>
-            <p>เห็นภาพรวมพลังงาน สุขภาพ และการเดินทางในที่เดียว</p>
+            <h3>Lorem ipsum dolor</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
             <div className="hero-stats">
-              <span>Energy -18%</span>
-              <span>Health +32%</span>
-              <span>Mobility +24%</span>
+              <span>Lorem -18%</span>
+              <span>Ipsum +32%</span>
+              <span>Dolor +24%</span>
             </div>
           </div>
           <div className="hero-card soft">
-            <h4>Team Momentum</h4>
-            <p>Mentor feedback ทุก 3 ชั่วโมง</p>
+            <h4>Lorem ipsum</h4>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
             <button className="btn btn-light" type="button">
-              ดูกำหนดการ
+              Lorem ipsum
             </button>
           </div>
         </div>
       </section>
 
-      <section className="marquee">
+      <section className="marquee fade-in" style={{ '--delay': '0.26s' }}>
         <div className="marquee-track">
           {[
-            '🚀 เปิดรับสมัครทีมถึง 30 พ.ย.',
-            '🎯 Challenge: Smart Home + Mobility',
-            '🌐 มีช่องทางออนไลน์พร้อม mentor',
-            '🏆 ชิงทุนต่อยอด 500,000 บาท',
+            '🚀 Lorem ipsum dolor sit amet',
+            '🎯 Lorem ipsum dolor',
+            '🌐 Lorem ipsum dolor sit',
+            '🏆 Lorem ipsum dolor amet',
           ].map((item, index) => (
             <span key={`${item}-${index}`} className="marquee-item">
               {item}
             </span>
           ))}
           {[
-            '🚀 เปิดรับสมัครทีมถึง 30 พ.ย.',
-            '🎯 Challenge: Smart Home + Mobility',
-            '🌐 มีช่องทางออนไลน์พร้อม mentor',
-            '🏆 ชิงทุนต่อยอด 500,000 บาท',
+            '🚀 Lorem ipsum dolor sit amet',
+            '🎯 Lorem ipsum dolor',
+            '🌐 Lorem ipsum dolor sit',
+            '🏆 Lorem ipsum dolor amet',
           ].map((item, index) => (
             <span key={`dup-${item}-${index}`} className="marquee-item">
               {item}
@@ -301,10 +301,10 @@ function App() {
         </div>
       </section>
 
-      <section className="highlights">
+      <section className="highlights fade-in" style={{ '--delay': '0.34s' }}>
         <div className="section-head">
           <h2>{text.highlightsTitle}</h2>
-          <p>โครงสร้างงานที่ยืดหยุ่น ปรับให้เหมาะกับทีมของคุณได้ง่าย</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
         </div>
         <div className="highlight-grid">
           {text.highlights.map((item) => (
@@ -312,14 +312,14 @@ function App() {
               <h3>{item.title}</h3>
               <p>{item.detail}</p>
               <button className="link" type="button">
-                รายละเอียดเพิ่มเติม →
+                Lorem ipsum →
               </button>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="schedule">
+      <section className="schedule fade-in" style={{ '--delay': '0.42s' }}>
         <div className="section-head">
           <h2>{text.scheduleTitle}</h2>
           <p>{text.scheduleSubtitle}</p>
@@ -337,7 +337,7 @@ function App() {
         </div>
       </section>
 
-      <section className="registration">
+      <section className="registration fade-in" style={{ '--delay': '0.5s' }}>
         <div className="section-head">
           <h2>{text.registrationTitle}</h2>
           <p>{text.registrationSubtitle}</p>
@@ -347,10 +347,10 @@ function App() {
             {members.map((member, index) => (
               <div key={`member-${index}`} className="member-row">
                 <div>
-                  <label htmlFor={`name-${index}`}>ชื่อผู้เข้าร่วม {index + 1}</label>
+                  <label htmlFor={`name-${index}`}>Lorem ipsum {index + 1}</label>
                   <input
                     id={`name-${index}`}
-                    placeholder="ชื่อ-นามสกุล"
+                    placeholder="Lorem ipsum"
                     type="text"
                     value={member.name}
                     onChange={(event) =>
@@ -359,10 +359,10 @@ function App() {
                   />
                 </div>
                 <div>
-                  <label htmlFor={`email-${index}`}>อีเมลผู้เข้าร่วม</label>
+                  <label htmlFor={`email-${index}`}>Lorem ipsum</label>
                   <input
                     id={`email-${index}`}
-                    placeholder="email@example.com"
+                    placeholder="lorem@example.com"
                     type="email"
                     value={member.email}
                     onChange={(event) =>
@@ -377,35 +377,35 @@ function App() {
             </button>
             <div className="form-actions">
               <button className="btn btn-primary" type="button">
-                ส่งใบสมัครทีม
+                Lorem ipsum
               </button>
               <button className="btn btn-light" type="button">
-                ดาวน์โหลดเกณฑ์การประกวด
+                Lorem ipsum
               </button>
             </div>
           </div>
           <div className="info-card">
-            <h3>Hackathon Partner Pack</h3>
-            <p>เตรียม resource ให้พร้อมก่อนวันจริง พร้อมชุดข้อมูล Smart City</p>
+            <h3>Lorem ipsum dolor</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
             <ul>
-              <li>Smart Life API sandbox</li>
-              <li>Design system จาก ReactBits</li>
-              <li>Room booking + mentor channel</li>
+              <li>Lorem ipsum dolor sit</li>
+              <li>Consectetur adipiscing</li>
+              <li>Sed do eiusmod</li>
             </ul>
             <div className="info-banner">
               <div>
-                <strong>Pitch Deck Clinic</strong>
-                <p>พร้อม feedback รอบสุดท้ายก่อนนำเสนอ</p>
+                <strong>Lorem ipsum</strong>
+                <p>Lorem ipsum dolor sit amet</p>
               </div>
               <button className="btn btn-primary" type="button">
-                จองคิว mentor
+                Lorem ipsum
               </button>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="share">
+      <section className="share fade-in" style={{ '--delay': '0.58s' }}>
         <div>
           <h2>{text.shareTitle}</h2>
           <p>{text.shareSubtitle}</p>
@@ -415,7 +415,7 @@ function App() {
         </button>
       </section>
 
-      <section className="faq">
+      <section className="faq fade-in" style={{ '--delay': '0.66s' }}>
         <div className="section-head">
           <h2>{text.faqTitle}</h2>
         </div>
@@ -429,23 +429,23 @@ function App() {
         </div>
       </section>
 
-      <footer className="footer">
+      <footer className="footer fade-in" style={{ '--delay': '0.74s' }}>
         <div className="footer-brand">
           <div className="logo">SmartLife</div>
-          <p>ร่วมสร้างเมืองอัจฉริยะที่ยั่งยืนสำหรับทุกคน</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
         </div>
         <div className="footer-links">
           <div>
-            <span>Explore</span>
-            <a href="#">Overview</a>
-            <a href="#">Mentors</a>
-            <a href="#">Partners</a>
+            <span>Lorem</span>
+            <a href="#">Lorem ipsum</a>
+            <a href="#">Dolor sit</a>
+            <a href="#">Amet</a>
           </div>
           <div>
-            <span>Resources</span>
-            <a href="#">Guideline</a>
-            <a href="#">FAQ</a>
-            <a href="#">Contact</a>
+            <span>Ipsum</span>
+            <a href="#">Lorem</a>
+            <a href="#">Ipsum</a>
+            <a href="#">Dolor</a>
           </div>
         </div>
       </footer>

@@ -21,8 +21,9 @@
   padding: 16px 24px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.9);
-  border: 1px solid var(--border);
+  border: 1px solid transparent;
   backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px -40px rgba(15, 23, 42, 0.35);
 }
 
 .logo {
@@ -92,12 +93,12 @@
 .sponsor-strip {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 24px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px 24px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   flex-wrap: wrap;
 }
 
@@ -126,12 +127,12 @@
 
 .sponsor-slider::before {
   left: 0;
-  background: linear-gradient(90deg, var(--surface), transparent);
+  background: linear-gradient(90deg, var(--background), transparent);
 }
 
 .sponsor-slider::after {
   right: 0;
-  background: linear-gradient(270deg, var(--surface), transparent);
+  background: linear-gradient(270deg, var(--background), transparent);
 }
 
 .sponsor-track {
@@ -147,18 +148,31 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 16px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: var(--background);
+  padding: 10px 6px;
+  border-radius: 0;
+  border: none;
+  background: transparent;
   font-size: 0.85rem;
   color: var(--muted);
   white-space: nowrap;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
 }
 
 .sponsor-card img {
   width: 22px;
   height: 22px;
+  filter: grayscale(1);
+  opacity: 0.8;
+}
+
+.sponsor-card:hover {
+  opacity: 1;
+}
+
+.sponsor-card:hover img {
+  filter: grayscale(0);
+  opacity: 1;
 }
 
 .sponsor-strip:hover .sponsor-track {
@@ -233,8 +247,8 @@
 .hero-card {
   padding: 24px;
   border-radius: var(--radius);
-  border: 1px solid var(--border);
-  background: var(--surface);
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.7);
   box-shadow: 0 30px 60px -50px rgba(15, 23, 42, 0.5);
 }
 
@@ -243,7 +257,7 @@
 }
 
 .hero-card.soft {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .hero-stats {
@@ -254,18 +268,18 @@
 }
 
 .hero-stats span {
-  background: white;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 999px;
   padding: 6px 12px;
-  border: 1px solid var(--border);
+  border: 1px solid transparent;
   font-size: 0.85rem;
 }
 
 .marquee {
   overflow: hidden;
   border-radius: var(--radius);
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid transparent;
 }
 
 .marquee-track {
@@ -321,8 +335,8 @@
 .highlight-card {
   padding: 24px;
   border-radius: var(--radius);
-  border: 1px solid var(--border);
-  background: var(--surface);
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.7);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -359,8 +373,8 @@
   gap: 24px;
   padding: 20px 24px;
   border-radius: var(--radius);
-  border: 1px solid var(--border);
-  background: var(--surface);
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .schedule-time {
@@ -385,8 +399,8 @@
 .info-card {
   padding: 24px;
   border-radius: var(--radius);
-  border: 1px solid var(--border);
-  background: var(--surface);
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.7);
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -408,15 +422,16 @@ input {
   width: 100%;
   padding: 12px 14px;
   border-radius: 12px;
-  border: 1px solid var(--border);
+  border: 1px solid transparent;
   margin-top: 6px;
   font-family: inherit;
   font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.9);
 }
 
 input:focus {
   outline: 2px solid var(--primary-soft);
-  border-color: var(--primary);
+  border-color: transparent;
 }
 
 .form-actions {
@@ -450,7 +465,7 @@ input:focus {
   padding: 24px;
   border-radius: var(--radius);
   background: linear-gradient(120deg, rgba(37, 99, 235, 0.12), rgba(56, 189, 248, 0.18));
-  border: 1px solid var(--border);
+  border: 1px solid transparent;
   flex-wrap: wrap;
   gap: 16px;
 }
@@ -467,10 +482,10 @@ input:focus {
 }
 
 .faq-item {
-  border: 1px solid var(--border);
+  border: 1px solid transparent;
   border-radius: 16px;
   padding: 16px 20px;
-  background: var(--surface);
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .faq-item summary {
@@ -488,8 +503,30 @@ input:focus {
   justify-content: space-between;
   gap: 32px;
   flex-wrap: wrap;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid transparent;
   padding-top: 32px;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fade-up 0.8s ease forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .footer-brand p {
