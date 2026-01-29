@@ -85,6 +85,7 @@ p { color: var(--text-muted); font-size: 1.125rem; margin-top: 0; }
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  gap: 24px;
 }
 
 .logo {
@@ -99,7 +100,10 @@ p { color: var(--text-muted); font-size: 1.125rem; margin-top: 0; }
 
 .nav-links {
   display: flex;
+  flex: 1;
   gap: 32px;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-link {
@@ -112,6 +116,12 @@ p { color: var(--text-muted); font-size: 1.125rem; margin-top: 0; }
 
 .nav-link:hover {
   color: var(--primary);
+}
+
+.navbar .btn-primary {
+  flex: 0 0 auto;
+  padding: 10px 24px;
+  font-size: 0.95rem;
 }
 
 /* --- 5. Hero Section --- */
