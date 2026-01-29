@@ -1,18 +1,27 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-  ArrowRight, 
-  Calendar, 
-  Clock, 
-  Plus, 
-  Trash2, 
-  CheckCircle, 
-  Facebook, 
-  Twitter, 
+import {
+  ArrowRight,
+  Calendar,
+  Clock,
+  Plus,
+  Trash2,
+  CheckCircle,
+  Facebook,
+  Twitter,
   Linkedin,
   Globe,
-  Zap
+  Zap,
+  Sparkles,
+  Lightbulb,
+  Users,
+  Target,
+  Rocket,
+  Award,
+  Menu,
+  X
 } from 'lucide-react';
 import './SmartLife.css';
+import DotGrid from '../../components/DotGrid';
 
 const config = {
   theme: {
@@ -40,6 +49,16 @@ const config = {
   }
 };
 
+// Import sponsor logos
+import chatgptLogo from '../../assets/sponsors/ChatGPT.png';
+import claudeLogo from '../../assets/sponsors/Claude Ai.png';
+import geminiLogo from '../../assets/sponsors/Google Ai Gemini.png';
+import grabfoodLogo from '../../assets/sponsors/GrabFood.png';
+import laravelLogo from '../../assets/sponsors/Laravel.png';
+import linemanLogo from '../../assets/sponsors/Line Man.png';
+import pepsiLogo from '../../assets/sponsors/Pepsi.png';
+import shopeeLogo from '../../assets/sponsors/Shopee.png';
+
 // ข้อมูลจำลอง (Lorem Ipsum / Placeholder)
 const schedules = [
   { time: '09:00 - 10:00', title: 'Registration & Welcome', desc: 'ลงทะเบียนรับป้ายชื่อและของที่ระลึก' },
@@ -48,12 +67,22 @@ const schedules = [
   { time: '16:30 - 18:00', title: 'Project Pitching Round 1', desc: 'นำเสนอผลงานรอบคัดเลือก 10 ทีมสุดท้าย' },
 ];
 
-const sponsors = Array(8).fill('Sponsor Logo'); // Mock sponsor array
+const sponsors = [
+  chatgptLogo,
+  claudeLogo,
+  geminiLogo,
+  grabfoodLogo,
+  laravelLogo,
+  linemanLogo,
+  pepsiLogo,
+  shopeeLogo
+];
 
 function SmartLifePage() {
   // --- State Management ---
   const [attendees, setAttendees] = useState([{ name: '', email: '' }]);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // --- Theme Application ---
   useEffect(() => {
@@ -63,6 +92,18 @@ function SmartLifePage() {
     root.style.setProperty('--radius', config.theme.radius);
     document.body.style.fontSize = `${config.theme.fontScale * 16}px`;
   }, []);
+
+  // --- Lock Body Scroll when Mobile Menu is Open ---
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
 
   // --- Scroll Animation Logic (Intersection Observer) ---
   useEffect(() => {
@@ -102,28 +143,86 @@ function SmartLifePage() {
     const url = window.location.href;
     const text = config.locale.labels.heroTitle;
     let shareUrl = '';
-    
+
     if (platform === 'facebook') shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
     if (platform === 'twitter') shareUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
-    
+
     window.open(shareUrl, '_blank', 'width=600,height=400');
   };
 
   return (
     <div className="app-container">
+      {/* DotGrid Background */}
+      <DotGrid
+        dotSize={3}
+        gap={30}
+        baseColor="#cbd5e1"
+        activeColor="#2563eb"
+        proximity={150}
+        speedTrigger={100}
+        shockRadius={250}
+        shockStrength={5}
+        className="dotgrid-background"
+      />
+
       {/* Navigation */}
-      <nav className="navbar">
+      <nav className={`navbar ${mobileMenuOpen ? 'menu-open' : ''}`}>
         <div className="container nav-content">
           <a href="#" className="logo">
             <Zap fill="currentColor" className="text-primary" />
             SmartLife
           </a>
+
+          {/* Desktop Navigation */}
           <div className="nav-links">
             {config.locale.labels.nav.map((item, idx) => (
               <a href={`#section-${idx}`} key={idx} className="nav-link">{item}</a>
             ))}
           </div>
-          <button className="btn btn-primary" onClick={() => document.getElementById('register').scrollIntoView()}>
+
+          {/* Desktop CTA Button */}
+          <button className="btn btn-primary nav-cta-desktop" onClick={() => document.getElementById('register').scrollIntoView()}>
+            เข้าร่วมตอนนี้
+          </button>
+
+          {/* Mobile Burger Menu Button */}
+          <button
+            className="burger-menu"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu Backdrop */}
+        <div
+          className={`mobile-menu-backdrop ${mobileMenuOpen ? 'open' : ''}`}
+          onClick={() => setMobileMenuOpen(false)}
+        />
+
+        {/* Mobile Menu Drawer */}
+        <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
+          <div className="mobile-menu-links">
+            {config.locale.labels.nav.map((item, idx) => (
+              <a
+                href={`#section-${idx}`}
+                key={idx}
+                className="mobile-nav-link"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+          <button
+            className="btn btn-primary"
+            style={{ width: '100%', marginTop: '20px' }}
+            onClick={() => {
+              document.getElementById('register').scrollIntoView();
+              setMobileMenuOpen(false);
+            }}
+          >
             เข้าร่วมตอนนี้
           </button>
         </div>
@@ -135,7 +234,7 @@ function SmartLifePage() {
           <Globe size={16} /> {config.locale.labels.heroBadge}
         </div>
         <h1>{config.locale.labels.heroTitle}</h1>
-        <p>{config.locale.labels.heroSubtitle}</p>
+        <p className="hero-subtitle-highlight">{config.locale.labels.heroSubtitle}</p>
         <div className="hero-actions">
           <button className="btn btn-primary" onClick={() => document.getElementById('register').scrollIntoView()}>
             {config.locale.labels.ctaPrimary} <ArrowRight size={18} />
@@ -148,25 +247,72 @@ function SmartLifePage() {
 
       {/* Sponsors Marquee (Infinite Scroll) */}
       <div className="sponsors-wrapper">
-        <div className="container" style={{ textAlign: 'center', marginBottom: '20px', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+        <div className="container" style={{ textAlign: 'center', marginBottom: '30px', color: 'var(--text-muted)', fontSize: '0.9rem', fontWeight: '500' }}>
           {config.locale.labels.sponsorTitle}
         </div>
         <div className="marquee">
           {/* Double the array for seamless loop */}
-          {[...sponsors, ...sponsors].map((_, index) => (
-            // Replace src with your actual images e.g. src={`/sponsors/logo-${index}.png`}
-            <img 
-              key={index} 
-              src={`https://placehold.co/200x80/transparent/2563eb?text=Sponsor+${index + 1}`} 
-              alt="Sponsor" 
-              className="sponsor-logo" 
+          {[...sponsors, ...sponsors].map((logo, index) => (
+            <img
+              key={index}
+              src={logo}
+              alt={`Sponsor ${index + 1}`}
+              className="sponsor-logo"
             />
           ))}
         </div>
       </div>
 
-      {/* Schedule Section */}
+      {/* MagicBento Section - About Smart Life Series */}
       <section className="container reveal">
+        <div className="section-header">
+          <h2>ทำไมต้อง Smart Life Hackathon?</h2>
+          <p>ค้นพบโอกาสและประสบการณ์ที่จะเปลี่ยนแปลงอนาคตของคุณ</p>
+        </div>
+        <div className="bento-grid">
+          <div className="bento-card reveal">
+            <div className="bento-icon gradient-purple">
+              <Sparkles color="white" size={28} />
+            </div>
+            <h3>นวัตกรรมที่แท้จริง</h3>
+            <p>สร้างสรรค์โซลูชันที่แก้ปัญหาจริง พัฒนาทักษะด้านเทคโนโลยีและการคิดเชิงนวัตกรรม</p>
+          </div>
+          <div className="bento-card reveal">
+            <div className="bento-icon gradient-pink">
+              <Users color="white" size={28} />
+            </div>
+            <h3>เครือข่ายมืออาชีพ</h3>
+            <p>พบปะกับนักพัฒนา ผู้ประกอบการ และผู้เชี่ยวชาญจากบริษัทชั้นนำทั่วประเทศ</p>
+          </div>
+          <div className="bento-card reveal">
+            <div className="bento-icon gradient-blue">
+              <Lightbulb color="white" size={28} />
+            </div>
+            <h3>เรียนรู้จากผู้เชี่ยวชาญ</h3>
+            <p>Workshop และ Mentoring จาก Industry Leaders ที่พร้อมแชร์ประสบการณ์และความรู้</p>
+          </div>
+          <div className="bento-card reveal">
+            <div className="bento-icon gradient-orange">
+              <Award color="white" size={28} />
+            </div>
+            <h3>รางวัลมูลค่ารวม 100,000 บาท</h3>
+            <p>ชิงรางวัลใหญ่และโอกาสในการนำเสนอผลงานต่อนักลงทุน</p>
+          </div>
+          <div className="bento-card large reveal">
+            <div className="bento-icon gradient-teal">
+              <Target color="white" size={28} />
+            </div>
+            <h3>Smart Life Series: ชุดกิจกรรมที่ครบครัน</h3>
+            <p>
+              Smart Life ไม่ใช่แค่ Hackathon แต่เป็นชุดกิจกรรมที่ออกแบบมาเพื่อพัฒนาทักษะและสร้างเครือข่าย
+              ตั้งแต่ Workshop เทคโนโลยีล่าสุด, การแข่งขัน Hackathon, ไปจนถึง Demo Day สำหรับนำเสนอผลงานต่อนักลงทุน
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Schedule Section */}
+      <section className="container reveal extra-spacing-top">
         <div className="section-header">
           <h2>{config.locale.labels.scheduleTitle}</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -185,7 +331,7 @@ function SmartLifePage() {
       </section>
 
       {/* Registration Form (Multi-Person) */}
-      <section id="register" className="container reveal">
+      <section id="register" className="container reveal extra-spacing-top">
         <div className="section-header">
           <h2>{config.locale.labels.formTitle}</h2>
           <p>{config.locale.labels.formDesc}</p>
@@ -207,10 +353,10 @@ function SmartLifePage() {
                 <div key={index} className="attendee-row reveal">
                   <div>
                     <label className="input-label">ชื่อ - นามสกุล (Person {index + 1})</label>
-                    <input 
-                      type="text" 
-                      className="input-field" 
-                      required 
+                    <input
+                      type="text"
+                      className="input-field"
+                      required
                       placeholder="John Doe"
                       value={person.name}
                       onChange={(e) => {
@@ -222,10 +368,10 @@ function SmartLifePage() {
                   </div>
                   <div>
                     <label className="input-label">อีเมล</label>
-                    <input 
-                      type="email" 
-                      className="input-field" 
-                      required 
+                    <input
+                      type="email"
+                      className="input-field"
+                      required
                       placeholder="john@example.com"
                       value={person.email}
                       onChange={(e) => {
@@ -242,7 +388,7 @@ function SmartLifePage() {
                   )}
                 </div>
               ))}
-              
+
               <div style={{ display: 'flex', gap: '16px', marginTop: '24px' }}>
                 <button type="button" className="btn btn-secondary" onClick={handleAddAttendee}>
                   <Plus size={18} /> เพิ่มสมาชิก
