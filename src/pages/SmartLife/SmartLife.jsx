@@ -168,6 +168,15 @@ function SmartLifePage() {
       {/* Navigation */}
       <nav className={`navbar ${mobileMenuOpen ? 'menu-open' : ''}`}>
         <div className="container nav-content">
+          {/* Mobile Burger Menu Button - Left side on mobile */}
+          <button
+            className="burger-menu"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
           <a href="#" className="logo">
             <Zap fill="currentColor" className="text-primary" />
             SmartLife
@@ -183,15 +192,6 @@ function SmartLifePage() {
           {/* Desktop CTA Button */}
           <button className="btn btn-primary nav-cta-desktop" onClick={() => document.getElementById('register').scrollIntoView()}>
             เข้าร่วมตอนนี้
-          </button>
-
-          {/* Mobile Burger Menu Button */}
-          <button
-            className="burger-menu"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 

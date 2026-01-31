@@ -177,6 +177,8 @@ p {
   gap: 8px;
   color: var(--text-main);
   text-decoration: none;
+  order: 1;
+  /* Default order for desktop */
 }
 
 .nav-links {
@@ -214,6 +216,8 @@ p {
   cursor: pointer;
   padding: 8px;
   z-index: 1001;
+  order: 0;
+  /* Always first on mobile */
 }
 
 /* Mobile Menu Drawer */
@@ -258,10 +262,12 @@ p {
 /* Mobile Menu Backdrop - Separate Element */
 .mobile-menu-backdrop {
   position: fixed;
-  top: 0;
+  top: var(--nav-height);
+  /* Start below navbar */
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - var(--nav-height));
+  /* Height minus navbar */
   background: rgba(0, 0, 0, 0.5);
   opacity: 0;
   visibility: hidden;
