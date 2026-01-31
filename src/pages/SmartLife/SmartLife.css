@@ -177,8 +177,8 @@ p {
   gap: 8px;
   color: var(--text-main);
   text-decoration: none;
-  order: 1;
-  /* Default order for desktop */
+  order: 0;
+  /* Left side on desktop */
 }
 
 .nav-links {
@@ -210,15 +210,17 @@ p {
 /* Burger Menu Button */
 .burger-menu {
   display: none;
+  /* Hidden on desktop */
   background: none;
   border: none;
   color: var(--text-main);
   cursor: pointer;
   padding: 8px;
   z-index: 1001;
-  order: 0;
-  /* Always first on mobile */
+  order: -1;
+  /* Always first when visible (mobile) */
 }
+
 
 /* Mobile Menu Drawer */
 .mobile-menu {
@@ -980,4 +982,30 @@ p {
   font-weight: 600;
   font-size: 0.9rem;
   color: var(--text-main);
+}
+
+/* --- 15. Mobile Responsive --- */
+@media (max-width: 768px) {
+
+  /* Show burger menu on mobile */
+  .burger-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Hide desktop navigation */
+  .nav-links {
+    display: none;
+  }
+
+  .nav-cta-desktop {
+    display: none;
+  }
+
+  /* Logo on right side on mobile */
+  .logo {
+    order: 2;
+    margin-left: auto;
+  }
 }
