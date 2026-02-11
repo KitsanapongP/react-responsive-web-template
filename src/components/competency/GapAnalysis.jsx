@@ -1,29 +1,26 @@
 // src/components/competency/GapAnalysis.jsx
 import React from 'react';
 import { Info } from 'lucide-react';
+import { useLanguage } from '../../providers/LanguageContext';
 
 const GapAnalysis = ({
     competencies,
     scores,
     requirements
 }) => {
+    const { t } = useLanguage();
+
     return (
         <div className="gap-section card">
             <div className="card-header">
                 <h2>
                     <Info size={20} className="section-icon" />
-                    วิเคราะห์ช่องว่าง (Gap Analysis)
+                    {t('gap_analysis')}
                 </h2>
-                <span className="info-badge">เทียบกับเกณฑ์หลักสูตร</span>
+                <span className="info-badge">{t('compared_to_requirement')}</span>
             </div>
             <div className="gap-grid">
                 {competencies.map(id => {
-                    // Find competency object globally or pass it in - prefer passing full objects if possible, 
-                    // but here we might just have IDs. Let's assume the parent maps it or we look it up.
-                    // Ideally, 'competencies' prop here should be an array of objects.
-                    // BUT, to keep it consistent with the previous logic which iterated over 'selectedCompetencies' (IDs),
-                    // we might need to look them up.
-                    // Let's assume 'competencies' passed here is an ARRAY OF OBJECTS for better encapsulation.
                     const score = scores[id.id] || 0;
                     const target = requirements[id.id];
                     const gap = score - target;
@@ -50,8 +47,8 @@ const GapAnalysis = ({
                                 ></div>
                             </div>
                             <div className="gap-labels">
-                                <span>คะแนน: {score}</span>
-                                <span>เป้าหมาย: {target}</span>
+                                <span>{t('score')}: {score}</span>
+                                <span>{t('target')}: {target}</span>
                             </div>
                         </div>
                     );

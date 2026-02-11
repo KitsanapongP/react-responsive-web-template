@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Award, Activity } from 'lucide-react';
+import { useLanguage } from '../../providers/LanguageContext';
 
 // Config & Data
 import { CHART_COLORS } from '../../config/theme';
@@ -20,6 +21,7 @@ import GapAnalysis from '../../components/competency/GapAnalysis';
 import './Competency.css';
 
 function CompetencyPage() {
+  const { t } = useLanguage();
   const [activePage, setActivePage] = useState('dashboard');
 
   // Dashboard States
@@ -112,7 +114,7 @@ function CompetencyPage() {
         const data = selectedCompetencies.map(id => yearData[id] || 0);
 
         datasets.push({
-          label: `ปี ${year}`,
+          label: `${t('year')} ${year}`,
           data,
           backgroundColor: CHART_COLORS[index % CHART_COLORS.length].bg,
           borderColor: CHART_COLORS[index % CHART_COLORS.length].border,
@@ -160,7 +162,7 @@ function CompetencyPage() {
     if (showRequirement) {
       const reqData = selectedCompetencies.map(id => CURRICULUM_REQUIREMENTS[id] || 0);
       datasets.push({
-        label: 'เกณฑ์หลักสูตร',
+        label: t('requirement_criteria'),
         data: reqData,
         backgroundColor: 'transparent',
         borderColor: '#ef4444',
@@ -168,6 +170,7 @@ function CompetencyPage() {
         borderDash: [5, 5],
         pointBackgroundColor: '#ef4444',
         pointRadius: 4,
+        isRequirement: true,
       });
     }
 
@@ -287,16 +290,16 @@ function CompetencyPage() {
             <div className="profile-card card">
               <div className="profile-avatar">KP</div>
               <h3>Kitsanapong Panasri</h3>
-              <p>รหัสนักศึกษา: 6530xxxxx</p>
-              <p>คณะวิศวกรรมศาสตร์</p>
-              <p>สาขาวิศวกรรมคอมพิวเตอร์</p>
+              <p>{t('student_id')}: 6530xxxxx</p>
+              <p>{t('faculty')}</p>
+              <p>{t('department')}</p>
             </div>
 
             <div className="activity-history card">
               <div className="card-header">
                 <h2>
                   <Award size={20} className="section-icon" />
-                  กิจกรรมล่าสุด
+                  {t('recent_activities')}
                 </h2>
               </div>
               <div className="activity-list">
@@ -308,7 +311,7 @@ function CompetencyPage() {
                       <span>{act.date}</span>
                     </div>
                     <div className="activity-status verified">
-                      ยืนยันแล้ว
+                      {t('verified')}
                     </div>
                   </div>
                 ))}
@@ -325,17 +328,17 @@ function CompetencyPage() {
             <div className="card-header">
               <h2>
                 <Activity size={20} className="section-icon" />
-                รายการกิจกรรมทั้งหมด
+                {t('all_activities')}
               </h2>
             </div>
             <table className="data-table">
               <thead>
                 <tr>
-                  <th>กิจกรรม</th>
-                  <th>วันที่</th>
-                  <th>ประเภท</th>
-                  <th>คะแนน</th>
-                  <th>สถานะ</th>
+                  <th>{t('activities')}</th>
+                  <th>{t('date')}</th>
+                  <th>{t('type')}</th>
+                  <th>{t('score')}</th>
+                  <th>{t('status')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -356,7 +359,7 @@ function CompetencyPage() {
                         <td><strong>+{act.score}</strong></td>
                         <td>
                           <span className="status-badge verified">
-                            ✓ ยืนยันแล้ว
+                            ✓ {t('verified')}
                           </span>
                         </td>
                       </tr>

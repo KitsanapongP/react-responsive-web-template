@@ -1,8 +1,11 @@
 // src/components/competency/CompetencyStats.jsx
 import React from 'react';
 import { Target, TrendingUp, Award } from 'lucide-react';
+import { useLanguage } from '../../providers/LanguageContext';
 
 const CompetencyStats = ({ stats }) => {
+    const { t } = useLanguage();
+
     return (
         <div className="stats-grid">
             <div className="stat-card">
@@ -10,7 +13,7 @@ const CompetencyStats = ({ stats }) => {
                     <Target size={20} />
                 </div>
                 <div className="stat-info">
-                    <span className="stat-label">คะแนนเฉลี่ย</span>
+                    <span className="stat-label">{t('avg_score')}</span>
                     <span className="stat-value">{stats.avg}</span>
                 </div>
             </div>
@@ -19,7 +22,7 @@ const CompetencyStats = ({ stats }) => {
                     <TrendingUp size={20} />
                 </div>
                 <div className="stat-info">
-                    <span className="stat-label">การเติบโต</span>
+                    <span className="stat-label">{t('growth')}</span>
                     <span className="stat-value">{stats.growth > 0 ? '+' : ''}{stats.growth}%</span>
                 </div>
             </div>
@@ -28,7 +31,7 @@ const CompetencyStats = ({ stats }) => {
                     <Award size={20} />
                 </div>
                 <div className="stat-info">
-                    <span className="stat-label">ผ่านเกณฑ์</span>
+                    <span className="stat-label">{t('passed_criteria')}</span>
                     <span className="stat-value">{stats.passed}/{stats.total}</span>
                 </div>
             </div>

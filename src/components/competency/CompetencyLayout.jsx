@@ -5,10 +5,19 @@ import {
     Menu, X
 } from 'lucide-react';
 import ColorBends from '../ColorBends';
-import { BACKGROUND_COLORS } from '../../config/theme';
+import { DARK_BACKGROUND_COLORS, LIGHT_BACKGROUND_COLORS } from '../../config/theme';
+import { useLanguage } from '../../providers/LanguageContext';
+import LanguageSwitcher from '../LanguageSwitcher';
+import ThemeToggle from '../ThemeToggle';
+import { useTheme } from '../../providers/ThemeProvider';
 
 const CompetencyLayout = ({ children, activePage, onNavigate }) => {
+    const { t } = useLanguage();
+    const { resolvedTheme } = useTheme();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    const isDark = resolvedTheme === 'dark';
+    const blendColors = isDark ? DARK_BACKGROUND_COLORS : LIGHT_BACKGROUND_COLORS;
 
     const handleNavigate = (page) => {
         onNavigate(page);
@@ -20,7 +29,7 @@ const CompetencyLayout = ({ children, activePage, onNavigate }) => {
             <ColorBends
                 className="color-bends-bg"
                 transparent={true}
-                colors={BACKGROUND_COLORS}
+                colors={blendColors}
                 rotation={0}
                 autoRotate={0}
                 speed={0.2}
@@ -35,8 +44,9 @@ const CompetencyLayout = ({ children, activePage, onNavigate }) => {
                     inset: 0,
                     zIndex: -1,
                     pointerEvents: 'none',
-                    background: '#ffffff',
-                    opacity: 0.5,
+                    background: isDark ? '#000000' : '#ffffff',
+                    opacity: isDark ? 0.42 : 0.5,
+                    transition: 'background-color 350ms ease, opacity 350ms ease',
                 }}
             />
             <div className="competency-app">
@@ -56,35 +66,48 @@ const CompetencyLayout = ({ children, activePage, onNavigate }) => {
                                 onClick={() => handleNavigate('dashboard')}
                             >
                                 <LayoutDashboard size={18} />
-                                <span>แดชบอร์ด</span>
+                                <span>{t('dashboard')}</span>
                             </button>
                             <button
                                 className={`nav-item ${activePage === 'profile' ? 'active' : ''}`}
                                 onClick={() => handleNavigate('profile')}
                             >
                                 <User size={18} />
-                                <span>ประวัติส่วนตัว</span>
+                                <span>{t('profile')}</span>
                             </button>
                             <button
                                 className={`nav-item ${activePage === 'verify' ? 'active' : ''}`}
                                 onClick={() => handleNavigate('verify')}
                             >
                                 <ClipboardCheck size={18} />
-                                <span>ตรวจสอบข้อมูล</span>
+                                <span>{t('verify')}</span>
                             </button>
                         </div>
 
-                        <div className="user-area">
-                            <div className="user-info">
-                                <span className="user-name">Kitsanapong P.</span>
-                                <span className="user-role">นักศึกษา</span>
+                        <div className="nav-right-section">
+                            <div className="desktop-quick-controls">
+                                <ThemeToggle />
+                                <LanguageSwitcher />
                             </div>
-                            <div className="avatar">KP</div>
-                        </div>
 
-                        <button className="mobile-menu-btn" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                        </button>
+                            <div className="user-area">
+                                <div className="user-info">
+                                    <span className="user-name">Kitsanapong P.</span>
+                                    <span className="user-role">{t('student')}</span>
+                                </div>
+                                <div className="avatar">KP</div>
+                            </div>
+
+                            {/* Mobile: quick controls visible outside burger */}
+                            <div className="mobile-inline-controls">
+                                <ThemeToggle />
+                                <LanguageSwitcher />
+                            </div>
+
+                            <button className="mobile-menu-btn" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                            </button>
+                        </div>
                     </div>
                 </nav>
 
@@ -107,28 +130,28 @@ const CompetencyLayout = ({ children, activePage, onNavigate }) => {
                                     onClick={() => handleNavigate('dashboard')}
                                 >
                                     <LayoutDashboard size={20} />
-                                    <span>แดชบอร์ด</span>
+                                    <span>{t('dashboard')}</span>
                                 </button>
                                 <button
                                     className={`mobile-nav-item ${activePage === 'profile' ? 'active' : ''}`}
                                     onClick={() => handleNavigate('profile')}
                                 >
                                     <User size={20} />
-                                    <span>ประวัติส่วนตัว</span>
+                                    <span>{t('profile')}</span>
                                 </button>
                                 <button
                                     className={`mobile-nav-item ${activePage === 'verify' ? 'active' : ''}`}
                                     onClick={() => handleNavigate('verify')}
                                 >
                                     <ClipboardCheck size={20} />
-                                    <span>ตรวจสอบข้อมูล</span>
+                                    <span>{t('verify')}</span>
                                 </button>
                             </div>
                             <div className="mobile-user-section">
                                 <div className="avatar">KP</div>
                                 <div>
                                     <span className="user-name">Kitsanapong P.</span>
-                                    <span className="user-role">นักศึกษา</span>
+                                    <span className="user-role">{t('student')}</span>
                                 </div>
                             </div>
                         </div>
