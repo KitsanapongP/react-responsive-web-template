@@ -69,7 +69,7 @@
   font-size: 0.75rem;
   font-weight: 700;
   color: #0f172a;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .card-content {
@@ -118,5 +118,14 @@
 }
 
 /* Mockup Colors for Previews */
-.bg-navy { background: linear-gradient(135deg, #1e3a8a, #172554); }
-.bg-blue { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.bg-navy {
+  background: linear-gradient(135deg, #1e3a8a, #172554);
+}
+
+.bg-blue {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.bg-purple {
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+}

@@ -7,6 +7,8 @@ import { LanguageProvider } from './providers/LanguageContext';
 import Home from './pages/Home/Home';
 import CompetencyPage from './pages/Competency/Competency';
 import SmartLifePage from './pages/SmartLife/SmartLife';
+import GameThemePage from './pages/GameTheme/GameTheme';
+import GameRegisterPage from './pages/GameTheme/GameRegister';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
             {/* Template Routes */}
             <Route path="/competency" element={<CompetencyPage />} />
             <Route path="/smartlife" element={<SmartLifePage />} />
+            <Route path="/gametheme" element={<GameThemePage />} />
+            <Route path="/gametheme/register" element={<GameRegisterPage />} />
           </Routes>
         </BrowserRouter>
       </LanguageProvider>

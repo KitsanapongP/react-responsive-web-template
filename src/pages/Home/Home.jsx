@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Layout, Zap, ArrowRight, GraduationCap } from 'lucide-react';
+import { Layout, Zap, ArrowRight, GraduationCap, Gamepad2 } from 'lucide-react';
 import './Home.css';
 
 const Home = () => {
@@ -22,6 +22,15 @@ const Home = () => {
       icon: <Zap size={48} color="white" opacity={0.8} />,
       colorClass: 'bg-blue',
       tags: ['Landing Page', 'Scroll Reveal', 'Event']
+    },
+    {
+      id: 3,
+      title: 'Game Theme',
+      desc: 'Landing Page + ระบบลงทะเบียนทีมแบบ Lobby สไตล์ Gartic Phone พร้อม Interactive Background (△ ○ □ ✕) และ Dark/Light Mode',
+      path: '/gametheme',
+      icon: <Gamepad2 size={48} color="white" opacity={0.8} />,
+      colorClass: 'bg-purple',
+      tags: ['Landing Page', 'Team System', 'Game UI']
     }
   ];
 
@@ -50,7 +59,7 @@ const Home = () => {
             </div>
           </div>
         ))}
-        
+
         {/* Card สำหรับ Template ในอนาคต */}
         <div className="template-card" style={{ borderStyle: 'dashed', background: '#f8fafc' }}>
           <div className="card-content" style={{ alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
