@@ -16,8 +16,8 @@ const Home = () => {
     },
     {
       id: 2,
-      title: 'Smart Life Hackathon',
-      desc: 'Landing Page สำหรับงาน Event/Hackathon รองรับการเลื่อนแบบ Scroll Reveal และตารางกิจกรรม Theme: Modern Blue',
+      title: 'Smart Life',
+      desc: 'Landing Page สำหรับงาน Event รองรับการเลื่อนแบบ Scroll Reveal และตารางกิจกรรม Theme: Modern Blue',
       path: '/smartlife',
       icon: <Zap size={48} color="white" opacity={0.8} />,
       colorClass: 'bg-blue',
